@@ -1,5 +1,18 @@
 ---
+const pageTitle = "Meli";
 
+const identity = {
+  firstname: "Sarah",
+  country: "Colombia",
+  occupation: "Software Engineer",
+  hobbies: ["Reading", "Traveling", "Coding"],
+};
+
+const skills = ["HTML", "CSS", "JavaScipt", "React", "Node.js"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,7 +21,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Inicio</a>
@@ -26,5 +39,25 @@
       Lo hice yo!! Espero que te guste, es un sitio web muy sencillo, pero lo
       hice con mucho cariño.
     </p>
+
+    <p><b>Acá hay algunos datos sobre mi: </b></p>
+    <ul>
+      <li>Nombre: {identity.firstname}</li>
+      <li>País: {identity.country}</li>
+      <li>Ocupación: {identity.occupation}</li>
+      <li>Hobbies: {identity.hobbies.join(", ")}</li>
+    </ul>
+    <p>Mis habilidades son:</p>
+    <ul>{skills.map((skill) => <li>{skill}</li>)}</ul>
+
+    {happy && <p>Estoy feliz de aprender Astro</p>}
+    {finished && <p>Acabé el tutorial</p>}
+    {
+      goal === 3 ? (
+        <p>My goal is to finish in 3 days</p>
+      ) : (
+        <p>My goal is not to finish in 3 days</p>
+      )
+    }
   </body>
 </html>
